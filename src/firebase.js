@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyACYngrGLhO-s-ZOet4Hg-_TtRbTTdY7XQ",
-    authDomain: "headstarter-auth.firebaseapp.com",
-    projectId: "headstarter-auth",
-    storageBucket: "headstarter-auth.appspot.com",
-    messagingSenderId: "510693647293",
-    appId: "1:510693647293:web:543a34475de55c2422e8d4"
+  apiKey: "AIzaSyACYngrGLhO-s-ZOet4Hg-_TtRbTTdY7XQ",
+  authDomain: "headstarter-auth.firebaseapp.com",
+  projectId: "headstarter-auth",
+  storageBucket: "headstarter-auth.appspot.com",
+  messagingSenderId: "510693647293",
+  appId: "1:510693647293:web:543a34475de55c2422e8d4"
 };
 
 // Initialize Firebase
