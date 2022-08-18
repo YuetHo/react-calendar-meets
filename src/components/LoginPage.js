@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from 'react'
 import { UserAuth } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { headStarterLogo } from '../images/imageindex';
+import { headStarterLogo, googleLogo } from '../images/imageindex';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -42,9 +42,12 @@ export default function LoginPage() {
   return (
     <div className='loginPage'>
       <div className='loginSection'>
-        <div><img src={headStarterLogo}/></div>
-        <div>Welcome back!</div>
-        <button className='googleBtn' onClick={handleGoogleSignIn}>Sign in with Google</button>
+        <div><img className='headStarterLogo' src={headStarterLogo}/></div>
+        <h2>Welcome back!</h2>
+        <button className='googleBtn' onClick={handleGoogleSignIn}>
+          <img className='googleLogo' src={googleLogo} />
+          Sign in with Google
+        </button>
         {/* <div>
                     <h6>------  Or Sign In with Email  -------</h6>
                     <p>

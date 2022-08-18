@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
+import { calendarIcon, homeIcon, logOutIcon, videoCallIcon } from '../images/imageindex';
 
 // side nav bar component
 export default function NavbarSide() {
@@ -19,10 +20,24 @@ export default function NavbarSide() {
   return (
     <nav className='navBarSide'>
       <div className='navBarLinks'>
-        <Link to='/'> <button>Home</button> </Link>
-        <Link to='/calendar'> <button>Calendar</button> </Link>
-        <Link to='/meets'> <button>Meets</button> </Link>
-        <button className='logoutBtn' onClick={handleSignOut}>Logout</button>
+        <Link to='/'>
+          <button>
+            <img className='navIcons' src={homeIcon} />
+          </button>
+        </Link>
+        <Link to='/calendar'>
+          <button>
+            <img className='navIcons' src={calendarIcon} />
+          </button>
+        </Link>
+        <Link to='/meets'>
+          <button>
+            <img className='navIcons' src={videoCallIcon} />
+          </button>
+        </Link>
+        <button className='logoutBtn' onClick={handleSignOut}>
+          <img className='navIcons' src={logOutIcon} />
+        </button>
       </div>
     </nav>
   )
