@@ -11,6 +11,7 @@ import { auth } from '../firebase';
 
 const AuthContext = createContext();
 
+// AuthContextProvider component does ...
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
 

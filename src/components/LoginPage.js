@@ -1,48 +1,51 @@
 import { React, useEffect, useState } from 'react'
 import { UserAuth } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { headStarterLogo } from '../images/imageindex';
 
 export default function LoginPage() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const { signIn } = UserAuth();
-    const { googleSignIn, user } = UserAuth();
-    const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const { signIn } = UserAuth();
+  const { googleSignIn, user } = UserAuth();
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError('')
-        try {
-            await signIn(email, password)
-            navigate('/account')
-        } catch (e) {
-            setError(e.message)
-            console.log(e.message)
-        }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('')
+    try {
+      await signIn(email, password)
+      navigate('/account')
+    } catch (e) {
+      setError(e.message)
+      console.log(e.message)
+    }
+  };
 
-    const handleGoogleSignIn = async () => {
-        try {
-            await googleSignIn();
-        } catch (error) {
-            console.log(error);
-        }
-    };
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    useEffect(() => {
-        if (user != null) {
-            navigate('/account');
-        }
-    }, [user]);
+  // if user is logged in, go to homepage, check this whenever user variable is modified
+  useEffect(() => {
+    if (user != null) {
+      navigate('/');
+      // navigate('/account');
+    }
+  }, [user]);
 
-    return (
-        <div className='loginPage'>
-            <div className='loginSection'>
-                <div>HeadStarter</div>
-                <div>Welcome back!</div>
-                <button className='googleBtn' onClick={handleGoogleSignIn}>Sign in with Google</button>
-                <div>
+  return (
+    <div className='loginPage'>
+      <div className='loginSection'>
+        <div><img src={headStarterLogo}/></div>
+        <div>Welcome back!</div>
+        <button className='googleBtn' onClick={handleGoogleSignIn}>Sign in with Google</button>
+        {/* <div>
                     <h6>------  Or Sign In with Email  -------</h6>
                     <p>
                         Don't have an account yet?{' '}
@@ -63,8 +66,8 @@ export default function LoginPage() {
                     <button>
                         Login
                     </button>
-                </form>
-            </div>
-        </div>
-    )
+                </form> */}
+      </div>
+    </div>
+  )
 }
