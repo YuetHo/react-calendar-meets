@@ -1,14 +1,70 @@
-import React from 'react'
+import { React, useEffect, useState } from 'react'
+import { UserAuth } from '../context/AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
-  return (
-    <div className='loginPage'>
-      <div className='loginSection'>
-        <div>HeadStarter</div>
-        <div>Welcome back!</div>
-        <button className='googleBtn'>Sign in with Google</button>
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const { signIn } = UserAuth();
+    const { googleSignIn, user } = UserAuth();
+    const navigate = useNavigate();
 
-      </div>
-    </div>
-  )
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('')
+        try {
+            await signIn(email, password)
+            navigate('/account')
+        } catch (e) {
+            setError(e.message)
+            console.log(e.message)
+        }
+    };
+
+    const handleGoogleSignIn = async () => {
+        try {
+            await googleSignIn();
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        if (user != null) {
+            navigate('/account');
+        }
+    }, [user]);
+
+    return (
+        <div className='loginPage'>
+            <div className='loginSection'>
+                <div>HeadStarter</div>
+                <div>Welcome back!</div>
+                <button className='googleBtn' onClick={handleGoogleSignIn}>Sign in with Google</button>
+                <div>
+                    <h6>------  Or Sign In with Email  -------</h6>
+                    <p>
+                        Don't have an account yet?{' '}
+                        <Link to='/signup'>
+                            Sign up.
+                        </Link>
+                    </p>
+                </div>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label>Email Address</label>
+                        <input onChange={(e) => setEmail(e.target.value)} type='email' />
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input onChange={(e) => setPassword(e.target.value)} type='password' />
+                    </div>
+                    <button>
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    )
 }
