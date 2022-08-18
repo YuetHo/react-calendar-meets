@@ -175,3 +175,13 @@ button {
 .loginSection .googleBtn .googleLogo {
   height: 100%;
 }
+
+.calendarPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  font-size: 0.875rem;
+}
