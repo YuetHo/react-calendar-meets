@@ -121,6 +121,22 @@ button {
   height: var(--contentHeight);
 }
 
+/* .meetsPage {
+  height: "100%";
+}
+
+.videoCallGrid {
+  height: "100%";
+}
+
+.videoCallGrid .videoControl {
+  height: "5%";
+}
+
+.videoCallGrid .videoCall {
+  height: "95%";
+} */
+
 .loginPage {
   position: fixed;
   z-index: 100;
