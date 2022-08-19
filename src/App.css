@@ -25,6 +25,12 @@ button {
   border: none;
 }
 
+input {
+  font-family: 'Poppins';
+  color: #637381;
+  font-size: 0.875rem;
+}
+
 .app {
   width: 100%;
   height: 100vh;
@@ -45,7 +51,7 @@ button {
   align-items: center;
   width: 100%;
   height: calc(100% - var(--contentHeight));
-  
+
   background: rgba(61, 86, 240, 0.05);
 }
 
@@ -102,7 +108,23 @@ button {
   width: 7vmin;
 }
 
-.navBarLinks .logoutBtn{
+/* Specific styles for non-active links */
+.navBarSide .navBarLinks .link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navBarSide .navBarLinks .link-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  border-left: 0.5rem solid #3D56F0;
+}
+
+.navBarLinks .logoutBtn {
   position: absolute;
   top: 90%;
 }
@@ -154,14 +176,12 @@ button {
 
 .loginSection {
   position: relative;
-  top: -5%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0%;
-  width: 25%;
-  height: 60%;
+  width: 30%;
+  height: 70%;
 
   padding: 2%;
   font-size: 0.875rem;
@@ -174,6 +194,7 @@ button {
 .loginSection .headStarterLogo {
   width: 100%;
   height: auto;
+  margin-bottom: 5%;
 }
 
 .loginSection .googleBtn {
@@ -189,7 +210,108 @@ button {
 }
 
 .loginSection .googleBtn .googleLogo {
+  height: 90%;
+}
+
+.loginSection .loginSeparator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
+  width: 100%;
+
+  font-size: 0.625rem;
+  color: #637381;
+}
+
+.loginSeparator .sepLine1,
+.loginSeparator .sepLine2 {
+  flex: 1;
+  height: 1%;
+
+  background-color: #637381;
+  border: 1px solid #637381;
+}
+
+.sepLine1 {
+  margin-right: 5%;
+}
+
+.sepLine2 {
+  margin-left: 5%;
+}
+
+.loginSection input {
+  height: 10%;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 5%;
+
+  box-sizing: border-box;
+  border: 1px solid #637381;
+  border-radius: 10px;
+  background: white;
+}
+
+.loginSection .loginBtn {
+  width: 100%;
+  height: 10%;
+
+  background: #3D56F0;
+  border-radius: 5px;
+  color: white;
+}
+
+.homePage {
+  width: 100%;
   height: 100%;
+}
+
+.homePage .homeGreeting {
+  position: absolute;
+  top: 4%;
+  left: 4%;
+
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.homePage .homeMeetingBtn {
+  position: absolute;
+  top: 4%;
+  right: 6%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12%;
+  height: 6%;
+
+  background: #3D56F0;
+  box-shadow: 8px 16px 20px rgba(61, 86, 240, 0.24);
+  border-radius: 5px;
+  font-size: 0.875rem;
+  color: #FFFFFF;
+}
+
+.homePage .homeTasksContainer {
+  position: absolute;
+  top: 10%;
+  left: 4%;
+
+  width: 60%;
+  height: 60%;
+
+  box-sizing: border-box;
+  border: 1px solid #637381;
+  border-radius: 5px;
+}
+
+.homeTasksContainer .topTaskSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
 }
 
 .calendarPage {

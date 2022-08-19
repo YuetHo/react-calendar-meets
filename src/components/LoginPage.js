@@ -43,34 +43,29 @@ export default function LoginPage() {
   return (
     <div className='loginPage'>
       <div className='loginSection'>
-        <div><img className='headStarterLogo' src={headStarterLogo}/></div>
+        <div><img className='headStarterLogo' src={headStarterLogo} /></div>
         <h2>Welcome back!</h2>
         <button className='googleBtn' onClick={handleGoogleSignIn}>
           <img className='googleLogo' src={googleLogo} />
           Sign in with Google
         </button>
-        {/* <div>
-                    <h6>------  Or Sign In with Email  -------</h6>
-                    <p>
-                        Don't have an account yet?{' '}
-                        <Link to='/signup'>
-                            Sign up.
-                        </Link>
-                    </p>
-                </div>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label>Email Address</label>
-                        <input onChange={(e) => setEmail(e.target.value)} type='email' />
-                    </div>
-                    <div>
-                        <label>Password</label>
-                        <input onChange={(e) => setPassword(e.target.value)} type='password' />
-                    </div>
-                    <button>
-                        Login
-                    </button>
-                </form> */}
+
+        <div className='loginSeparator'>
+          <div className='sepLine1' />
+          or Sign in with Email
+          <div className='sepLine2' />
+        </div>
+
+        <label><strong>Email</strong></label>
+        <input placeholder='name@headstarter.com' type='email' />
+
+        <label><strong>Password</strong></label>
+        <input placeholder='name@headstarter.com' type='password' />
+
+        <button className='loginBtn'>
+          Sign In
+        </button>
+
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink  } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import { calendarIcon, homeIcon, logOutIcon, videoCallIcon } from '../images/imageindex';
 
@@ -20,21 +20,21 @@ export default function NavbarSide() {
   return (
     <nav className='navBarSide'>
       <div className='navBarLinks'>
-        <Link to='/'>
+        <NavLink to='/' className={({ isActive }) => (isActive ? "link-active" : "link")}>
           <button>
             <img className='navIcons' src={homeIcon} />
           </button>
-        </Link>
-        <Link to='/calendar'>
+        </NavLink>
+        <NavLink to='/calendar' className={({ isActive }) => (isActive ? "link-active" : "link")}>
           <button>
             <img className='navIcons' src={calendarIcon} />
           </button>
-        </Link>
-        <Link to='/meets'>
+        </NavLink>
+        <NavLink to='/meets' className={({ isActive }) => (isActive ? "link-active" : "link")}>
           <button>
             <img className='navIcons' src={videoCallIcon} />
           </button>
-        </Link>
+        </NavLink>
         <button className='logoutBtn' onClick={handleSignOut}>
           <img className='navIcons' src={logOutIcon} />
         </button>
