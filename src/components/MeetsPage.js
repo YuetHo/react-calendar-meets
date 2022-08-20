@@ -15,7 +15,7 @@ function MeetsPage() {
                     <div className="joinInnerMeetingContainer">
                         <span className="joinMeetingTitle">Today's Upcoming Meeting</span>
                         <div className="meetingSchedule">
-                            No meeting scheduled today
+                            Event: Recording
                         </div>
                         <Button
                             variant="contained"
