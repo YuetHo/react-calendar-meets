@@ -43,6 +43,7 @@ export default function Controls(props) {
                     variant="contained"
                     color={trackState.audio ? "primary" : "secondary"}
                     onClick={() => mute("audio")}
+                    style={{background: "#3D56F0"}}
                 >
                     {trackState.audio ? <MicIcon /> : <MicOffIcon />}
                 </Button>
@@ -52,6 +53,7 @@ export default function Controls(props) {
                     variant="contained"
                     color={trackState.video ? "primary" : "secondary"}
                     onClick={() => mute("video")}
+                    style={{background: "#3D56F0"}}
                 >
                     {trackState.video ? <VideocamIcon /> : <VideocamOffIcon />}
                 </Button>
@@ -60,6 +62,7 @@ export default function Controls(props) {
                 <Button
                     variant="contained"
                     onClick={() => leaveChannel()}
+                    style={{background: "#FF0000"}}
                 >
                     Leave
                     <ExitToAppIcon />

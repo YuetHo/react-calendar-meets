@@ -5,19 +5,28 @@ import VideoCall from "./group-video-call/VideoCall";
 
 function MeetsPage() {
     const [inCall, setInCall] = useState(false);
-    // <div className="meetsPage">
+
     return (
-        <div style={{ height: "100%" }}>
+        <div className="meetsPage">
             {inCall ? (
                 <VideoCall setInCall={setInCall} />
             ) : (
-                <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={() => setInCall(true)}
-                >
-                    Join Meeting
-                </Button>
+                <div className="joinMeetingContainer">
+                    <div className="joinInnerMeetingContainer">
+                        <span className="joinMeetingTitle">Today's Upcoming Meeting</span>
+                        <div className="meetingSchedule">
+                            No meeting scheduled today
+                        </div>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={() => setInCall(true)}
+                            style={{width:"40%" ,background: "#3D56F0"}}
+                        >
+                            Join Meeting
+                        </Button>
+                    </div>
+                </div>
             )}
         </div>
     );

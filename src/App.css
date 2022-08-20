@@ -143,22 +143,6 @@ input {
   height: var(--contentHeight);
 }
 
-/* .meetsPage {
-  height: "100%";
-}
-
-.videoCallGrid {
-  height: "100%";
-}
-
-.videoCallGrid .videoControl {
-  height: "5%";
-}
-
-.videoCallGrid .videoCall {
-  height: "95%";
-} */
-
 .loginPage {
   position: fixed;
   z-index: 100;
@@ -346,8 +330,6 @@ input {
   border-radius: 5px;
 }
 
-.calendarPage .addEventTitleInput {}
-
 .calendarPage .addEventDate {
   width: auto;
   height: auto;
@@ -366,4 +348,51 @@ input {
   border-radius: 5px;
   font-size: 0.875rem;
   color: #FFFFFF;
+}
+
+.meetsPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.meetsPage .joinMeetingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 50%;
+
+  background: rgba(61, 86, 240, 0.05);
+  border: 1px solid #637381;
+  border-radius: 5px;
+}
+
+.meetsPage .joinInnerMeetingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+  gap:10%;
+}
+
+.meetsPage .joinMeetingTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.meetsPage .meetingSchedule {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+
+  background: #FFFFFF;
+  border: 1px solid #637381;
+  box-shadow: 0.5rem 0.3rem 1rem rgba(99, 115, 129, 0.24);
+  border-radius: 5px;
 }
