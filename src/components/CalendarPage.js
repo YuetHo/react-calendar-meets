@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import format from 'date-fns/format';
 import getDay from 'date-fns/getDay';
 import parse from 'date-fns/parse';
@@ -26,16 +26,26 @@ const events = [
 
 ];
 
+const calendarStyle = {
+  width: "80%",
+  height: "90%",
+  margin: "2%"
+}
+
 function CalendarPage() {
-  
+
   // eventsToLoad is the default state for allEvents
   // if the localstorage for 'events' exist then it will load that saved state into allEvents
   // else it will just use the empty events[] defined above, loading no events on the calendar
   const eventsToLoad = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : events
 
   // calendar events are in allEvents state [], THERE IS CURRENTLY NO WAY TO DELETE EVENTS THROUGH THE UI
-  const [allEvents, setAllEvents] = useState(eventsToLoad)  
+  const [allEvents, setAllEvents] = useState(eventsToLoad)
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" })
+
+  const titleRef = useRef(null)
+  const startDateRef = useRef(null)
+  const endDateRef = useRef(null)
 
   function handleAddEvent() {
     if (newEvent.title === "" || newEvent.start === "" || newEvent.end === "") {
@@ -52,41 +62,54 @@ function CalendarPage() {
   }, [allEvents]);
 
   return (
-    <div className="App">
-      <button> Add Event</button>
-      <div>
-        <input
-          type="text"
-          placeholder="Add Title"
-          style={{ width: "20%", marginRight: "10px" }}
-          value={newEvent.title}
-          onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
-        />
-
-        <DatePicker
-          placeholderText="Start Date"
-          style={{ marginRight: "10px" }}
-          selected={newEvent.start}
-          onChange={(start) => setNewEvent({ ...newEvent, start })} />
-
-        <DatePicker
-          placeholderText="End Date"
-          selected={newEvent.end}
-          onChange={(end) => setNewEvent({ ...newEvent, end })} />
-
-        <button style={{ marginTop: "10px" }} onClick={handleAddEvent} >
-          Submit
-        </button>
-
-      </div>
+    <div className="calendarPage">
 
       <Calendar
         localizer={localizer}
         events={allEvents}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500, margin: "50px" }}
+        style={calendarStyle}
       />
+
+
+      <div className='rightPane'>
+        <form className='addEventPane' onSubmit={handleAddEvent}>
+          <h2> Create new events</h2>
+          <input
+            className='addEventTitleInput'
+            ref={titleRef}
+            type="text"
+            placeholder="Add Title"
+            value={newEvent.title}
+            onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+          />
+
+          <DatePicker
+            wrapperClassName='addEventDate'
+            ref={startDateRef}
+            placeholderText="Start Date"
+            selected={newEvent.start}
+            onChange={(start) => setNewEvent({ ...newEvent, start })}
+          />
+
+          <DatePicker
+            wrapperClassName='addEventDate'
+            ref={endDateRef}
+            placeholderText="End Date"
+            selected={newEvent.end}
+            onChange={(end) => setNewEvent({ ...newEvent, end })}
+          />
+
+          <button className='addEventSubmit' type='submit' >
+            Add Event
+          </button>
+        </form>
+        <div>
+
+        </div>
+      </div>
+
 
     </div>
   );
