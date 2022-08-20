@@ -4,7 +4,6 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  // turned off strict mode because it called useEffect Twice in VideoCall.js, causing there to be an incorrect amount of users added
+  <App />
 );

@@ -72,7 +72,6 @@ function CalendarPage() {
         style={calendarStyle}
       />
 
-
       <div className='rightPane'>
         <form className='addEventPane' onSubmit={handleAddEvent}>
           <h2> Create new events</h2>

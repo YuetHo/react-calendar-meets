@@ -68,7 +68,7 @@ export default function VideoCall(props) {
 
     return (
         <Grid container direction="column" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%" }}>
-            <Grid item style={{ width: "50%", height: "50%" }}>
+            <Grid item style={{ width: "80%", height: "80%" }}>
                 {/* start and track must not be null for video component to render */}
                 {start && tracks && <Video tracks={tracks} users={users} />}
             </Grid>
